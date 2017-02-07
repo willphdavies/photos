@@ -1,0 +1,16 @@
+<div class="container">
+
+    <md-card *ngFor="let album of albums | filter:  | paginate: { itemsPerPage: 1, currentPage: p }">
+        <md-card-title>
+            {{ album.title }}
+        </md-card-title>
+        <md-card-content>
+            <div class="photos">
+                <app-photo [album]="album">
+                    <md-spinner class="app-spinner"></md-spinner>
+                </app-photo>
+            </div>
+        </md-card-content>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </md-card>
+</div>
