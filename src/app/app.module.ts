@@ -5,7 +5,7 @@ import {Material2AppAppComponent, DialogContent} from './app.component';
 import {Ng2PaginationModule} from 'ng2-pagination';
 import { AlbumComponent } from './album/album.component';
 import { AlbumService } from "./album/album.service";
-import {PhotoComponent} from "./album/photo/photo.component";
+import { PhotoComponent } from "./album/photo/photo.component";
 
 @NgModule({
     imports: [
@@ -16,7 +16,7 @@ import {PhotoComponent} from "./album/photo/photo.component";
     providers: [
         AlbumService
     ],
-    declarations: [Material2AppAppComponent, DialogContent, AlbumComponent,PhotoComponent],
+    declarations: [Material2AppAppComponent, DialogContent, AlbumComponent, PhotoComponent],
     entryComponents: [DialogContent],
     bootstrap: [Material2AppAppComponent],
 })

@@ -1,6 +1,6 @@
 <div class="container" *ngFor="let photo of photos">
     <md-card class="md-primary" >
-        <img md-card-image [src]="photo.thumbnailUrl" />
+        <img md-card-image width="150" height="150" [src]="photo.thumbnailUrl" />
         <md-card-footer>{{ photo.title }}</md-card-footer>
     </md-card>
 </div>
