@@ -1,4 +1,4 @@
-# material2-app
-Simple app that consumes Angular Material 2 components. Built with the `angular-cli`.
+# Photo Album Organizer 
+## Powered by Angular2 and Material Design
 
-See it live: https://material2-app.firebaseapp.com/
+See a working example at http://photos.willphdavies.net/
