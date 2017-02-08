@@ -13,37 +13,48 @@ export class AlbumService {
     private albumUrl = 'https://jsonplaceholder.typicode.com/albums';
     private photoUrl = 'https://jsonplaceholder.typicode.com/photos';
 
+    private albums:[any];
+
     constructor(private http: Http) {
 
     }
 
     getAlbums() : Observable<Album[]>{
+
         return this.http.get(this.albumUrl)
-            .map((res: Response) => res.json())
+            .map((res:Response) => {
+                return res.json();
+            })
+            .share()
             .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+
     }
 
     getAlbum(albumId: number) : Observable<Album>{
         return this.http.get(this.albumUrl+'/'+albumId)
             .map((res: Response) => res.json())
+            .share()
             .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     getAlbumPhotos(albumId: number) : Observable<Photo[]>{
         return this.http.get(this.albumUrl+'/'+albumId +'/photos')
             .map((res: Response) => res.json())
+            .share()
             .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     getPhotos() : Observable<Photo[]>{
         return this.http.get(this.photoUrl)
             .map((res: Response) => res.json())
+            .share()
             .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     getPhoto(photoId: number) : Observable<Photo>{
         return this.http.get(this.photoUrl+'/'+photoId)
             .map((res: Response) => res.json())
+            .share()
             .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
 

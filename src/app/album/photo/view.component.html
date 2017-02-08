@@ -1,0 +1,7 @@
+<button md-icon-button [routerLink]="['/']">
+    <md-icon>navigate_before</md-icon>
+</button>
+<md-card class="md-primary" *ngIf="photo">
+    <img md-card-image width="600" height="600" [src]="photo.url" />
+    <md-card-footer>{{ photo.title }}</md-card-footer>
+</md-card>

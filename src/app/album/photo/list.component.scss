@@ -1,0 +1,15 @@
+.container {
+    width: 150px;
+    float: left;
+    margin: 10px;
+    cursor: pointer;
+}
+.md-card-footer {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px;
+    line-height: 32px;
+    vertical-align: middle;
+    width: 90%
+}

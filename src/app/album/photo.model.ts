@@ -1,9 +1,9 @@
 export class Photo {
     constructor(
-        albumId: number,
-        id: number,
-        title: string,
-        url: string,
-        thumbnailUrl: string
+        public albumId: number,
+        public id: number,
+        public title: string,
+        public url: string,
+        public thumbnailUrl: string
     ){}
 }

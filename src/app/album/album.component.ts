@@ -1,35 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { PhotoComponent } from './photo/photo.component';
 import { AlbumService } from './album.service';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
-    selector: 'app-album',
+    selector: 'album',
     templateUrl: './album.component.html',
-    styleUrls: ['./album.component.scss'],
-    directives: [PhotoComponent]
+    styleUrls: ['./album.component.scss']
 })
 export class AlbumComponent implements OnInit {
 
-    private AlbumService: AlbumService;
-
     public albums;
+    public page: number;
     public search = '';
 
 
-    constructor(AlbumService: AlbumService) {
-        this.AlbumService = AlbumService
-    }
+    constructor(
+        private AlbumService: AlbumService,
+        private currentRoute: ActivatedRoute
+    ) {}
 
     ngOnInit() {
+        this.currentRoute.params
+            .map(params => params['page'])
+            .subscribe((page) => {
+                this.page = page ? page : 1;
+            });
+
         this.AlbumService.getAlbums().subscribe(
             data => {
                 this.albums = data;
             }
         );
-    }
-
-    filterAlbums(filter: string){
-        console.log(filter);
     }
 
 }
