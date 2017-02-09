@@ -1,0 +1,19 @@
+md-grid-list {
+    margin: auto;
+}
+md-grid-tile {
+    .md-button {
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 600px){
+    md-grid-list {
+        width: 80%;
+    }
+}
+@media (min-width: 1200px){
+    md-grid-list {
+        width: 60%;
+    }
+}

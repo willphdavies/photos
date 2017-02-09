@@ -11,7 +11,7 @@ export class AlbumComponent implements OnInit {
 
     public albums;
     public page: number;
-    public search = '';
+    public search: string = '';
 
 
     constructor(
@@ -32,5 +32,4 @@ export class AlbumComponent implements OnInit {
             }
         );
     }
-
 }

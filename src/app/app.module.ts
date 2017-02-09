@@ -2,9 +2,10 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {MaterialModule} from '@angular/material';
 import {Material2AppAppComponent} from './app.component';
-import {Ng2PaginationModule} from 'ng2-pagination';
+import {Ng2PaginationModule} from './pagination';
 import  * as Albums from './album';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule }   from '@angular/forms';
 
 const appRoutes: Routes = [
     { path: 'photo/:id', component: Albums.Photos.AlbumPhotoViewComponent },
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
 @NgModule({
     imports: [
         BrowserModule,
+        FormsModule,
         MaterialModule.forRoot(),
         RouterModule.forRoot(appRoutes),
         Ng2PaginationModule
@@ -22,7 +24,7 @@ const appRoutes: Routes = [
     providers: [
         ...Albums.Providers
     ],
-    declarations: [Material2AppAppComponent, ...Albums.Components],
+    declarations: [Material2AppAppComponent, ...Albums.Components, ...Albums.Pipes],
     entryComponents: [],
     bootstrap: [Material2AppAppComponent],
 })

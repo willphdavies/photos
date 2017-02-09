@@ -1,6 +1,7 @@
 import * as photo from './photo';
 import {AlbumComponent} from "./album.component";
 import {AlbumService} from "./album.service";
+import {AlbumFilterPipe} from './filter.pipe';
 
 
 export * from './album.component';
@@ -16,3 +17,6 @@ export const Components = [
 export const Providers = [
     AlbumService
 ];
+export const Pipes = [
+    AlbumFilterPipe
+]

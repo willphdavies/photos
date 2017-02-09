@@ -1,0 +1,29 @@
+<pagination-template  #p="paginationApi"
+                      [id]="id"
+                      [maxSize]="maxSize"
+                      (pageChange)="pageChange.emit($event)">
+    <md-grid-list [cols]="cols" class="ng2-pagination"
+        role="navigation"
+        [attr.aria-label]="screenReaderPaginationLabel"
+        *ngIf="!(autoHide && p.pages.length <= 1)">
+
+        <md-grid-tile class="pagination-previous" *ngIf="directionLinks">
+            <a md-fab (click)="p.previous()" [attr.aria-label]="previousLabel + ' ' + screenReaderPageLabel" classs="md-primary">
+                <md-icon>arrow_back</md-icon>
+            </a>
+        </md-grid-tile>
+
+        <md-grid-tile [class.current]="p.getCurrent() === page.value" *ngFor="let page of p.pages">
+            <a (click)="p.setCurrent(page.value)" md-button>
+                <span>{{ page.label }}</span>
+            </a>
+        </md-grid-tile>
+
+        <md-grid-tile class="pagination-next" *ngIf="directionLinks">
+            <a md-color="primary" md-fab (click)="p.next()" [attr.aria-label]="nextLabel + ' ' + screenReaderPageLabel" classs="md-primary">
+                <md-icon>arrow_forward</md-icon>
+            </a>
+        </md-grid-tile>
+
+    </md-grid-list>
+</pagination-template>
