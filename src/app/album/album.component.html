@@ -1,17 +1,28 @@
 <div class="container">
-
-    <input type="text" placeholder="Favorite food" [(ngModel)]="search" #ctrl="ngModel">
-    <md-card *ngFor="let album of albums | albumFilter: search | paginate: { itemsPerPage: 1, currentPage: page }">
+    <div class="input-container">
+        <input
+            type="text"
+            placeholder="Search Albums..."
+            [(ngModel)]="search" #ctrl="ngModel" (focus)="searchFocus($event)" />
+        <md-icon color="primary">search</md-icon>
+        <div class="auto-complete" *ngIf="searching">
+            <md-list color="accent">
+                <h3 md-subheader color="primary">Albums</h3>
+                <md-list-item
+                    *ngFor="let album of albums | albumFilter: search"
+                    (click)="select(album)">{{ album.title }}</md-list-item>
+            </md-list>
+        </div>
+    </div>
+    <md-card *ngFor="let album of albums | albumFilter: search | paginate: { itemsPerPage: albumsPerPage, currentPage: page }">
         <md-card-title>
             {{ album.title }}
         </md-card-title>
         <md-card-content>
             <div class="photos">
-                <album-photo-list [album]="album">
-                    <md-spinner class="app-spinner"></md-spinner>
-                </album-photo-list>
+                <album-photo-list [album]="album"></album-photo-list>
             </div>
         </md-card-content>
-        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        <pagination-controls *ngIf="albums | albumFilter: search | lengthGreaterThan: albumsPerPage" (pageChange)="page = $event"></pagination-controls>
     </md-card>
 </div>

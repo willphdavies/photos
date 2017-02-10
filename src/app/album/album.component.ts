@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlbumService } from './album.service';
 import { ActivatedRoute } from "@angular/router";
+import { Album } from './album.model';
 
 @Component({
     selector: 'album',
@@ -9,9 +10,11 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class AlbumComponent implements OnInit {
 
-    public albums;
+    public albums: Array<Album>;
     public page: number;
     public search: string = '';
+    public searching: boolean = false;
+    public albumsPerPage: number = 1;
 
 
     constructor(
@@ -31,5 +34,14 @@ export class AlbumComponent implements OnInit {
                 this.albums = data;
             }
         );
+    }
+    select(album: Album){
+
+        this.search = album.title;
+        this.searching = false;
+    }
+    searchFocus($event){
+        $event.target.select();
+        this.searching = true;
     }
 }
