@@ -12,7 +12,9 @@ Most problems occur with Webpack integration.
     The bug appears to be as a result of a bad Node SASS compile
 * I attempted to bring in redux (https://github.com/angular-redux/store) in order to reduce the number of REST Api requests 
     but could not compile it successfully 
-* I didn't spend much time on unit testing due to time constraints but there seems to be another compile issue here    
+* I didn't spend much time on unit testing due to time constraints but there seems to be another compile issue here  
+
+  Angular2 is also pretty heavy 1.5Mb in 
 
 ## Components
 
@@ -30,5 +32,6 @@ Most problems occur with Webpack integration.
 * AlbumService - this also contains the call functions for the photo API, should probably be separated, but Photos
     and albums seem tightly coupled anyway
 * I would like to add some form of data caching to reduce the number of REST API calls    
+* It would also be nice to add in some better transitions for data updates
     
     
